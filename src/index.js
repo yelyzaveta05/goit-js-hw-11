@@ -4,9 +4,6 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 import fetchImages from './fetchImages';
 
-let gallerySimpleLightbox = new SimpleLightbox('.gallery a');
-const BASE_URL = 'https://pixabay.com/api/';
-const API_KEY = '30304003-9c44aaf784222fe9e4a4dbbed';
 let pageNumber = 1;
 
 
@@ -49,12 +46,12 @@ async function onLoadMore(){
     const data = await fetchImages(searchQuery, pageNumber);
 
     if (data.totalHits === 0) {
-        loadBtn.classList.add('is-hidden');
         Notiflix.Notify.warning("We're sorry, but you've reached the end of search results.");
+        loadBtn.classList.add('is-hidden');
     } else {
 
     renderGallary(data.hits);
-    Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+    // Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
     const simpleLightBox = new SimpleLightbox('.gallery a');
     };
 }
