@@ -48,7 +48,7 @@ async function onLoadMore(){
 
     if (data.hits.length === 0) {
         Notiflix.Notify.warning("We're sorry, but you've reached the end of search results.");
-        loadBtn.classList.add('is-hidden');
+        loadMoreBtnEl.classList.add('is-hidden');
     } else {
 
     renderGallary(data.hits);
